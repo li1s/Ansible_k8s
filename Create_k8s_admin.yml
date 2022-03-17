@@ -1,0 +1,16 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: create the 'k8s_admin' 
+      user: name=k8s_admin append=yes state=present createhome=yes shell=/bin/bash
+
+    - name: Edit sudoers 'k8s_admin' 
+      lineinfile:
+        dest: /etc/sudoers
+        line: 'k8s_admin ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+
+    - name: authorized keys for the k8s_admin
+      authorized_key: user=k8s_admin key="{{item}}"
+      with_file:
+        - ~/.ssh/id_rsa.pub
