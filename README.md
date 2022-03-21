@@ -8,14 +8,17 @@
 
 
  Все действие разворачивается на просторах RHV. Были использованны 4 ноды, созданные с помощью Anisble: 1 master node / 2 worker node / 1 bastion 
- На Bastion был развернут Ansible, сформирован Inventory файл. На всякий случай, если вдруг вопросы будут, то милости прошу вот сюда >> [ansible.com](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)   
- `mkdir k8s_cluster; cd k8s_cluster` / cозданем папку и переходим сразу в неё. Далее создам файл inventory   `vim / vi / nano hosts` наша задача указать ip adresse наших машин на которых будет устанавливаться наш кластер k8s.<br/>  
+ На Bastion был развернут Ansible, сформирован Inventory файл. На всякий случай, если вдруг вопросы будут, то милости прошу вот сюда >> [ansible.com](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)  <br/>
+ 
+ Cозданем папку и переходим сразу в неё. Далее создам файл inventory   `vim / vi / nano hosts` наша задача указать ip addresses наших машин на которых будет устанавливаться наш кластер k8s.<br/>  
+ 
+ `mkdir k8s_cluster; cd k8s_cluster`  <br/> 
  
  [master]  <br/>   
- ip-adresses k8s_master_node   <br/>   
+ ip-addresses k8s_master_node   <br/>   
  [worker]  
- ip-adresses k8s_worker_node_1   
- ip-adresses k8s_worker_node_2  
+ ip-addresses k8s_worker_node_1   
+ ip-addresses k8s_worker_node_2  
 
  
 Шаг 1. Установка обновлений
